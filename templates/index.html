@@ -1,11 +1,28 @@
-{% extends sktn.html %}
-{% block content %}
-<form action="fll" method="post">
-    <input type="text" name="usrnme">{{0}}
-    <input type="password" name="psswd">{{1}}
-    <input type="password" name="confm_psswd"/>{{2}}
-    <input type="text" name="eml">{{3}}
-    <input type="submit">
-</form>
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+            form {{
+                background-color: #eee;
+                padding: 20px;
+                margin: 0 auto;
+                width: 540px;
+                font: 16px sans-serif;
+                border-radius: 10px;
+            }}
+            p {{ color: red; }}
+    </style>
+</head>
+<body> 
 
-{% endblock %}
+    <form action="fll" method="post">
+        <label><h6>Username:</h6><input id="usrnme" type="text" name="usrnme"></input><br>{f}<br></label>
+        <label><h6>Password:</h6><input id="psswd" type="password" name="psswd"></input><br>{s}<br></label>
+        <label><h6>Confirm Password:</h6><input id="confm_psswd" type="password" name="confm_psswd"></input><br>{t}<br></label>
+        <label><h6>E-mail address:</h6><input id="eml" type="text" name="eml" /><br>{sm}<br></label>
+        <input type="submit" />
+    </form>
+    
+    
+</body>
+</html>
