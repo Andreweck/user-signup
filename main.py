@@ -38,36 +38,36 @@ def frmfrm():
         rgb = str(gg)
         nam = ['','','','']
         if 'U' in rgb:
-            nam[0] = "<p>This is not a valid username.</p>"
+            nam[0] = "This is not a valid username."
 
         if 'P' in rgb:
-            nam[1] = "<p>This is not a valid password.</p>"
+            nam[1] = "This is not a valid password."
 
         if 'C' in rgb:
-            nam[2] = "<p>These passwords do NOT match!</p>"
+            nam[2] = "These passwords do NOT match!"
         if 'E' in rgb:
-            nam[3] = "<p>That is not a valid email</p>" 
+            nam[3] = "That is not a valid email" 
 
-        return render_template('index.html', f=str(nam[0]), s=str(nam[1]), t=str(nam[2]), sm=str(nam[3]), ufld=usr, efld=email)
+        return render_template('home.html', f=str(nam[0]), s=str(nam[1]), t=str(nam[2]), sm=str(nam[3]), ufld=un, efld=emm)
         
         
         
         #return redirect("/error")
     else:
-        return redirect("/scss?usrnme={0}".format(un))
+        return redirect("/scss?usrnme={u}".format(u = un))
     
 
 @app.route("/scss")
 def scss():
     usrnme = request.args.get('usrnme')
-    return render_template('welcome.html', usrnme=usrnme)
+    return render_template('welcome.html', usrnme=str(usrnme))
 
 @app.route("/")
 def index():
    # template = jinja_env.get_template('index.html')
     usrnme = request.args.get('usrnme')
     email = request.args.get('eml')
-    return render_template('index.html', f="", s="", t="", sm="", ufld="", efld="")
+    return render_template('home.html', f="", s="", t="", sm="", ufld="", efld="")
 
 
 app.run()
